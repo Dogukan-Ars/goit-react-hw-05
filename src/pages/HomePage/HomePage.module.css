@@ -1,0 +1,39 @@
+.wrapper {
+    padding: 40px 0;
+}
+
+.hero {
+    margin-bottom: 40px;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    font-size: 16px;
+    color: var(--text-muted);
+}
+
+.error {
+    color: red;
+    margin-top: 20px;
+}
+
+/* RESPONSIVE */
+
+@media (min-width: 768px) {
+    .wrapper {
+        padding: 24px 0;
+    }
+
+    .title {
+        font-size: 24px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+}

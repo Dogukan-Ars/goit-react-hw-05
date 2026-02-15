@@ -1,0 +1,25 @@
+.list {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.item {
+    padding: 16px;
+    border-radius: 10px;
+    background-color: #f6f6f6;
+}
+
+.author {
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.content {
+    font-size: 14px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+}

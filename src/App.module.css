@@ -1,0 +1,33 @@
+.app {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.main {
+    flex: 1;
+    padding: 0 40px;
+
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    background-color: var(--bg-card);
+}
+
+@media (min-width: 768px) {
+    .main {
+        display: grid;
+        flex-wrap: wrap;
+
+        gap: 40px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+}
