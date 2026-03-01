@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
-import { Link, NavLink, Outlet, useLocation, useParams } from "react-router-dom"
+import { Link, Outlet, useLocation, useParams } from "react-router-dom"
 import { getMovieDetails } from "../../services/moviesApi";
+import styles from './MovieDetailPage.module.css';
 
 const IMAGE_BASE_URL = import.meta.env.VITE_TMDB_IMAGE_BASE_URL;
 
@@ -41,46 +42,69 @@ const MovieDetailPage = () => {
     const { title, overview, poster_path, release_date, genres = [] } = movie;
 
     return (
-        <div>
+        <div className={styles.container}>
             {/* Back link */}
-            <Link to={backLink.current}>← Back to Movies</Link>
+            <p className={styles.backLink}>
+                <Link to={backLink.current}>← Back to Movies</Link>
+            </p>
 
-            <hr />
+            <div className={styles.topSection}>
+                {poster_path && (
+                    <img
+                        src={`${IMAGE_BASE_URL}${poster_path}`}
+                        alt={title}
+                        className={styles.poster}
+                    />
+                )}
 
-            <h2>{title}</h2>
+                <div className={styles.info}>
+                    <h1 className={styles.title}>
+                        {title}{" "}
+                        <span className={styles.year}>
+                            ({release_date?.slice(0, 4)})
+                        </span>
+                    </h1>
 
-            {poster_path && (
-                <img
-                    src={`${IMAGE_BASE_URL}${movie.poster_path}`}
-                    alt={title}
-                    width="300"
-                />
-            )}
+                    <div className={styles.genres}>
+                        {genres.map(genre => (
+                            <span key={genre.id} className={styles.genreTag}>
+                                {genre.name}
+                            </span>
+                        ))}
+                    </div>
 
-            <p>{overview}</p>
+                    <hr className={styles.divider} />
 
-            <p>{release_date}</p>
+                    <p className={styles.overview}>{overview}</p>
 
-            <h3>Genres</h3>
-            <ul>
-                {genres.map(genre => (
-                    <li key={genre.id}>{genre.name}</li>
-                ))}
-            </ul>
+                    {/* Buraya ileride rating + yorum alanı gelecek */}
+                </div>
+            </div>
+            <div className={styles.bottomSection}>
 
-            <hr />
+                <div className={styles.tabs}>
+                    <Link
+                        to={`/movies/${movieId}/cast`}
+                        state={{ from: location.state?.from }}
+                        className={styles.tab}
+                    >
+                        Cast
+                    </Link>
 
-            {/* Nested navigation */}
+                    <Link
+                        to={`/movies/${movieId}/reviews`}
+                        state={{ from: location.state?.from }}
+                        className={styles.tab}
+                    >
+                        Reviews
+                    </Link>
+                </div>
 
-            <nav>
-                <NavLink to="cast">Cast</NavLink>{' | '}
-                <NavLink to="reviews">Reviews</NavLink>
-            </nav>
 
-            <Link to="cast" state={{ from: location }}>Cast</Link>
-            <Link to="reviews" state={{ from: location }}>Reviews</Link>
-            <hr />
-            <Outlet />
+                <div className={styles.tabContent}>
+                    <Outlet />
+                </div>
+            </div>
         </div>
     )
 }

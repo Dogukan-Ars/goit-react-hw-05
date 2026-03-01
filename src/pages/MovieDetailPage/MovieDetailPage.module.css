@@ -1,61 +1,178 @@
-.page {
-    padding: 20px;
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px;
 }
 
-.back {
-    display: inline-block;
-    margin-bottom: 20px;
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.card {
+.topSection {
     display: flex;
-    gap: 20px;
+    gap: 40px;
+    align-items: flex-start;
 }
 
 .poster {
-    width: 300px;
-    border-radius: 12px;
+    max-width: 200px;
+    border-radius: 16px;
     object-fit: cover;
-    border-radius: var(--radius);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
 .info {
-    max-width: 600px;
+    flex: 1;
 }
 
-.date {
-    opacity: 0.7;
-    margin-bottom: 10px;
+.title {
+    margin: 0;
+    font-size: 22px;
+}
+
+.year {
+    font-weight: 400;
+    color: #777;
+    font-size: 22px;
 }
 
 .genres {
     display: flex;
-    gap: 10px;
-    padding: 0;
-    list-style: none;
+    gap: 5px;
+    margin-top: 10px;
+    flex-wrap: wrap;
 }
 
-.genres li {
-    background-color: #eee;
-    padding: 4px 10px;
+.genreTag {
+    color: var(--text-main);
+    background: var(--bg-card);
+    padding: 3px 8px;
     border-radius: 20px;
-    font-size: 13px;
+    font-size: 12px;
 }
 
-.nav {
-    margin-top: 30px;
+.divider {
+    margin: 5px 0;
+}
+
+.overview {
+    line-height: 1.7;
+    font-size: 12px;
+}
+
+.backLink {
+    margin-bottom: 10px;
+}
+
+
+.tabs {
     display: flex;
-    gap: 20px;
+    gap: 15px;
+    margin-top: 15px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
 }
 
-.link {
+.tab {
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
+    color: var(--text-main);
 }
 
-.link.active {
-    color: #1976d2;
+.tab:hover {
+    color: var(--primary);
+}
+
+.tabContent {
+    margin-top: 20px;
+}
+
+
+@media (min-width: 768px) {
+    .topSection {
+        gap: 30px;
+    }
+
+    .poster {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .title {
+        margin: 0;
+        font-size: 25px;
+    }
+
+    .overview {
+        font-size: 14px;
+    }
+
+    .year {
+        font-weight: 400;
+        color: #777;
+        font-size: 25px;
+    }
+
+    .genres {
+        display: flex;
+        margin-top: 15px;
+        flex-wrap: wrap;
+    }
+
+    .genreTag {
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 12px;
+    }
+
+    .divider {
+        margin: 10px 0;
+    }
+
+    .tabs {
+        justify-content: center;
+    }
+}
+
+@media (min-width: 1024px) {
+    .topSection {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .poster {
+        min-width: 300px;
+    }
+
+    .overview {
+        font-size: 18px;
+    }
+
+    .details {
+        margin-left: 40px;
+        width: auto;
+    }
+
+    .genreTag {
+        padding: 5px 12px;
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .container {
+        padding: 40px;
+    }
+
+    .poster {
+        min-width: 350px;
+    }
+
+    .title {
+        font-size: 36px;
+    }
+
+    .overview {
+        font-size: 22px;
+    }
+
+    .year {
+        font-size: 26px;
+    }
 }

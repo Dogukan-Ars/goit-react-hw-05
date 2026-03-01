@@ -10,10 +10,12 @@
 .item {
     padding: 16px;
     border-radius: 10px;
-    background-color: #f6f6f6;
+    color: var(--text-main);
+    background: var(--bg-card);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.author {
+.title {
     margin-bottom: 8px;
     font-weight: 600;
 }

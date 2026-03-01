@@ -35,9 +35,19 @@ const MovieList = ({ movies }) => {
                             )}
 
                             <div className={styles.overlay}>
-                                <h3 className={styles.title}>
-                                    {movie.title}
-                                </h3>
+                                <div className={styles.content}>
+                                    <h3 className={styles.title}>{movie.title}</h3>
+
+                                    <div className={styles.meta}>
+                                        <span>{movie.release_date?.slice(0, 4)}</span>
+                                    </div>
+
+                                    <p className={styles.overview}>
+                                        {movie.overview
+                                            ? movie.overview.slice(0, 120) + "..."
+                                            : "No description available."}
+                                    </p>
+                                </div>
                             </div>
                         </Link>
                     </li>
