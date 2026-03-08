@@ -4,17 +4,16 @@ import { lazy, Suspense } from 'react'
 import Navigation from './components/Navigation/Navigation'
 import Loader from './components/Loader/Loader'
 
+const HomePage = lazy(() => import('./pages/HomePage/HomePage'))
+const MoviesPage = lazy(() => import('./pages/MoviesPage/MoviesPage'))
+const MovieDetailPage = lazy(() => import('./pages/MovieDetailPage/MovieDetailPage'))
+const MovieCast = lazy(() => import("./components/MovieCast/MovieCast"));
+const MovieReviews = lazy(() =>
+  import("./components/MovieReviews/MovieReviews")
+);
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'))
 
 function App() {
-
-  const HomePage = lazy(() => import('./pages/HomePage/HomePage'))
-  const MoviesPage = lazy(() => import('./pages/MoviesPage/MoviesPage'))
-  const MovieDetailPage = lazy(() => import('./pages/MovieDetailPage/MovieDetailPage'))
-  const MovieCast = lazy(() => import("./components/MovieCast/MovieCast"));
-  const MovieReviews = lazy(() =>
-    import("./components/MovieReviews/MovieReviews")
-  );
-  const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'))
 
   return (
     <div className={styles.app}>

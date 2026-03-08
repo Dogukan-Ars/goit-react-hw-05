@@ -1,9 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
+import noPoster from "../../assets/noPoster.png";
 import styles from "./MovieList.module.css";
 
 const IMAGE_BASE_URL = import.meta.env.VITE_TMDB_IMAGE_BASE_URL;
-const PLACEHOLDER =
-    "https://via.placeholder.com/500x500?text=No+Image+Available";
+const PLACEHOLDER = noPoster;
 
 const MovieList = ({ movies }) => {
     const location = useLocation();
@@ -26,6 +26,9 @@ const MovieList = ({ movies }) => {
                                 src={poster}
                                 alt={movie.title}
                                 className={styles.poster}
+                                onError={(e) => {
+                                    e.target.src = PLACEHOLDER;
+                                }}
                             />
 
                             {movie.vote_average > 0 && (
